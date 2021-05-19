@@ -7,6 +7,7 @@
 #include <cstdlib>
 #include <thread>
 #include <memory>
+#include <algorithm>
 
 using std::ostream;
 using std::cout;
@@ -46,7 +47,7 @@ static vector<string> Split(string str, string sep = " ", bool RemoveEmptyString
 	}
 
 	if (RemoveEmptyString)
-		vec.erase(remove(vec.begin(), vec.end(), ""), vec.end());
+		vec.erase(std::remove(vec.begin(), vec.end(), ""), vec.end());
 
 	return vec;
 }
