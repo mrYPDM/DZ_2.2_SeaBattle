@@ -23,12 +23,10 @@ int main()
 		{
 			player[0]->PrintMap();
 			player[1]->PrintMap();
-			std::this_thread::sleep_for(std::chrono::milliseconds(500));
 		}
 		else if (started)
 		{
 			player[(c + 1) % player.size()]->PrintMap();
-			std::this_thread::sleep_for(std::chrono::milliseconds(500));
 		}
 
 		if (started && player[(c + 1) % player.size()]->ShipsCount() == 0)
@@ -62,6 +60,8 @@ int main()
 					auto cells = player[c]->GetMaxCells();
 					int index = rand() % cells.size();
 					str = string(1, char(cells.at(index).second + 65)) + to_string(cells.at(index).first);
+					cout << endl << player[c]->GetName() << " attack " << str << endl;
+					std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 				}
 			}
 			auto data = Split(str);

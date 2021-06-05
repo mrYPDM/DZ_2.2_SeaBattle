@@ -30,9 +30,9 @@ using std::shared_ptr;
 using std::exception;
 using std::out_of_range;
 
-const static int Size = 10;
-const static char* Letters = "ABCDEFGHIJ";
-const static int ShipRules[10] = { 4, 3, 3, 2, 2, 2, 1, 1, 1, 1 };
+const uint8_t Size = 10;
+const string Letters = "ABCDEFGHIJ";
+const uint8_t ShipRules[10] = { 4, 3, 3, 2, 2, 2, 1, 1, 1, 1 };
 
 static vector<string> Split(string str, string sep = " ", bool RemoveEmptyString = true)
 {

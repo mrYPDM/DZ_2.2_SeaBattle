@@ -96,12 +96,7 @@ HitStatus Player::Shot(Player* target, int x, int y)
 
 HitStatus Player::ReceiveShot(int x, int y)
 {
-	if (MainField.at(x).at(y).Data == Cell::Empty || MainField.at(x).at(y).Data == Cell::Miss)
-	{
-		MainField.at(x).at(y).Data = Cell::Miss;
-		return HitStatus::Miss;
-	}
-	else if (MainField.at(x).at(y).Data == Cell::ShipCell)
+	if (MainField.at(x).at(y).Data == Cell::ShipCell)
 	{
 		auto ship = MainField.at(x).at(y).Ship;
 
@@ -118,6 +113,8 @@ HitStatus Player::ReceiveShot(int x, int y)
 			return HitStatus::Hit;
 		}
 	}
+	MainField.at(x).at(y).Data = Cell::Miss;
+	return HitStatus::Miss;
 }
 
 vector<pair<int, int>> Player::GetMaxCells()

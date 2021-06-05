@@ -30,7 +30,7 @@ void Field::AddShip(shared_ptr<Ship> ship)
 	{
 		if (ship->Direction == 0)
 		{
-			for (int x = ship->X; x < ship->X + ship->Length; x++)
+			for (uint8_t x = ship->X; x < ship->X + ship->Length; x++)
 			{
 				Map.at(x).at(ship->Y).Data = Cell::ShipCell;
 				Map.at(x).at(ship->Y).Ship = ship;
@@ -38,7 +38,7 @@ void Field::AddShip(shared_ptr<Ship> ship)
 		}
 		else
 		{
-			for (int y = ship->Y; y < ship->Y + ship->Length; y++)
+			for (uint8_t y = ship->Y; y < ship->Y + ship->Length; y++)
 			{
 				Map.at(ship->X).at(y).Data = Cell::ShipCell;
 				Map.at(ship->X).at(y).Ship = ship;
@@ -187,7 +187,7 @@ void Field::CalcWeight(vector<int> availableSizes)
 		}
 	}
 
-	for (int i = 0; i < availableSizes.size(); i++)
+	for (size_t i = 0; i < availableSizes.size(); i++)
 	{
 		for (int x = 0; x < Size; x++)
 		{
